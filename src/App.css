@@ -1,38 +1,229 @@
-.App {
-  text-align: center;
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Logo */
+.logo {
+  width: 100px; /* Default width for larger screens */
+  height: auto; /* Maintain aspect ratio */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    width: 80px; /* Adjust the width for smaller screens */
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.App {
+  text-align: center;
+  background-color: #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+/* Heading */
+.Heading {
+  font-size: 1.5rem;
+  color: #ff5733;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    font-size: 1.2rem; /* Adjust the font size for smaller screens */
+    margin-bottom: 10px; /* Adjust the margin for smaller screens */
+  }
+}
+
+/* Title */
+.title {
+  font-size: 1rem; /* Default font size for larger screens */
+  color: #cdd7d7;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: red;
+
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    font-size: 0.6rem; /* Adjust the font size for smaller screens */
+    margin-bottom: 10px; /* Adjust the margin for smaller screens */
+    color: red;
+  }
+}
+
+
+.name{
+  color: #a39e9e;
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Default margin for larger screens */
+
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 10px; /* Adjust the margin for smaller screens */
+  }
+}
+
+/* Input Field and Dropdown */
+.input-field {
+  padding: 10px;
+  border: 2px solid #00bcd4; /* Bright cyan border */
+  border-radius: 5px;
+  width: 150px; /* Default width for larger screens */
+  font-size: 1rem; /* Default font size for larger screens */
+  margin-right: 10px;
+  transition: border-color 0.3s ease-in-out;
+  @media (max-width: 768px) {
+      width: 100%; /* Make them full width */
+      font-size: 0.9rem; /* Adjust the font size for smaller screens */
+      margin-left: 2px;; /* Remove margin for smaller screens */
+      margin-bottom: 10px; /* Add a gap between input field and dropdown on smaller screens */
+  }
+}
+
+.dropdown {
+  padding: 10px;
+  border: 2px solid #00bcd4; /* Bright cyan border */
+  border-radius: 5px;
+  width: 150px; /* Default width for larger screens */
+  font-size: 1rem; /* Default font size for larger screens */
+  margin-right: 10px;
+  transition: border-color 0.3s ease-in-out;
+  @media (max-width: 768px) {
+      width: 100%; /* Make them full width */
+      font-size: 0.9rem; /* Adjust the font size for smaller screens */
+      margin-right: 0; /* Remove margin for smaller screens */
+      margin-bottom: 10px; /* Add a gap between input field and dropdown on smaller screens */
+  }
+}
+
+
+
+.input-field:focus,
+.dropdown:focus {
+  border-color: #ff3366; /* Bright pink border on focus */
+  outline: none;
+}
+
+
+/* Check Button */
+.check-button,
+.clear-button {
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px; /* Default padding for larger screens */
+  font-size: 1rem; /* Default font size for larger screens */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-right: 10px; /* Add margin-right for gap between buttons */
+
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    padding: 8px 16px; /* Adjust the padding for smaller screens */
+    font-size: 0.9rem; /* Adjust the font size for smaller screens */
+    margin-left: 0; /* Adjust margin-left for smaller screens */
+    margin-top: 10px; /* Add margin-top for spacing between buttons */
+  }
+}
+
+.check-button:hover,
+.clear-button:hover {
+  background-color: #ff3366; /* Bright pink button on hover */
+}
+
+/* Medication Results */
+.medication-results {
+  background-color: #dedede;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  margin-left: 80px;
+  width: 460px; /* Default width for larger screens */
+
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    width: 90%; /* Adjust the width for smaller screens */
+    margin-left: 0; /* Remove left margin for smaller screens */
+    margin-bottom: 10px; /* Adjust the margin for smaller screens */
+  }
+}
+
+.Medication-Heading {
+  color: green;
+  font-weight: bold;
+}
+
+/* CSS for the current date and time display */
+.current-datetime {
+  margin-top: 10px; /* Add spacing above the date and time */
+  font-size: 16px; /* Adjust font size */
+  color: #333; /* Set the text color */
+}
+
+/* Medication Text */
+.medication-text {
+  font-size: 1.2rem;
+  color: #000000; /* Bright cyan text color */
+  text-align: left;
+}
+
+/* Clear Button */
+.clear-button {
+  background-color: #ff3333;
   color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px; /* Default padding for larger screens */
+  font-size: 1rem; /* Default font size for larger screens */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    padding: 8px 16px; /* Adjust the padding for smaller screens */
+    margin-left: 5px; /* Adjust margin-left for smaller screens */
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.clear-button:hover {
+  background-color: #cc0000; /* Darker red color on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Add this CSS to your App.css file or your preferred CSS file */
+
+/* Copy button style */
+.copy-button {
+  background-color: #007bff; /* Blue color for the button */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.copy-button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+
+/* Copy status message style */
+.copy-status {
+  font-weight: bold;
+  color: green; /* Blue color for the message */
+  margin-top: 10px;
 }
