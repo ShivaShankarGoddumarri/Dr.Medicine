@@ -10,7 +10,7 @@ function App() {
 
 
   const symptomDatabase = {
-    acneBreakout: {
+    AcneBreakout: {
       medication: "Topical Acne Cream (e.g., Benzoyl Peroxide)",
       directions: "Apply a small amount to affected skin areas once daily as directed by your dermatologist.",
     },
@@ -34,13 +34,13 @@ function App() {
       medication: "Acetaminophen",
       directions: "Take 2 tablets every 4-6 hours.",
     },
-    bladderInfection: {
-      medication: "Antibiotics (e.g., Ciprofloxacin)",
-      directions: "Take as prescribed by your healthcare provider to treat the infection.",
-    },
     cold: {
       medication: "Coldact",
       directions: "Take 1 tablet every 4-6 hours.",
+    },
+    ColdAndSoreThroat: {
+      medication: "Montelukast + Levocetirizine",
+      directions: "Take as prescribed by your healthcare provider to manage cold and sore throat symptoms."
     },
     constipation: {
       medication: "Fiber supplements (Ex., Metamucil)",
@@ -66,6 +66,10 @@ function App() {
       medication: "Ibuprofen or Dolo 650",
       directions: "Take 1 tablet every 6-8 hours with food.",
     },
+    FeverAndBodypainsAndInflammation: {
+      medication: "Zerodol-sp",
+      directions: "Take 1 tablet every 6-8 hours with food.",
+    },
     headache: {
       medication: "Aspirin",
       directions: "Take 1 tablet every 4-6 hours.",
@@ -86,7 +90,7 @@ function App() {
       medication: "Melatonin",
       directions: "Take 1-5mg of melatonin 30 minutes before bedtime to improve sleep.",
     },
-    minorBurns: {
+    minorburns: {
       medication: "Burn Cream (e.g., Neosporin)",
       directions: "Apply a thin layer to the burned area for soothing relief and infection prevention.",
     },
@@ -94,7 +98,7 @@ function App() {
       medication: "Sumatriptan",
       directions: "Take 1 tablet at the onset of a migraine headache. Do not exceed 2 tablets in 24 hours.",
     },
-    motionSickness: {
+    motionsickness: {
       medication: "Dimenhydrinate (e.g., Dramamine)",
       directions: "Take 1-2 tablets 30 minutes before travel to prevent motion sickness.",
     },
@@ -118,7 +122,7 @@ function App() {
       medication: "Throat lozenges",
       directions: "Dissolve one lozenge in your mouth as needed, up to 4 times a day.",
     },
-    sprainedAnkle: {
+    sprainedankle: {
       medication: "Over-the-counter pain reliever (e.g., Ibuprofen)",
       directions: "Take 1 tablet every 6-8 hours with food for pain and inflammation.",
     },
@@ -141,29 +145,36 @@ function App() {
   const checkSymptoms = () => {
     const enteredSymptoms = symptomsInput
       .split(",")
-      .map((symptom) => symptom.trim().toLowerCase());
-
-    const foundMedications = enteredSymptoms.map((symptom) => {
-      if (symptomDatabase.hasOwnProperty(symptom)) {
+      .map((symptom) => symptom.trim());
+  
+    const foundMedications = enteredSymptoms.map((enteredSymptom) => {
+      const normalizedSymptom = enteredSymptom.toLowerCase();
+  
+      // Look for an exact match in the symptomDatabase without changing the case
+      const matchingSymptom = Object.keys(symptomDatabase).find(
+        (key) => key.toLowerCase() === normalizedSymptom
+      );
+  
+      if (matchingSymptom) {
         return {
-          symptom,
-          medication: symptomDatabase[symptom].medication,
-          directions: symptomDatabase[symptom].directions,
+          symptom: matchingSymptom, // Use the matched symptom from the database
+          medication: symptomDatabase[matchingSymptom].medication,
+          directions: symptomDatabase[matchingSymptom].directions,
         };
       } else {
         return {
-          symptom,
+          symptom: enteredSymptom, // Use the original entered symptom casing
           medication: "No medication recommendation found",
           directions: "",
         };
       }
     });
-
+  
     // Set the current date and time
     setCurrentDateTime(new Date());
     setMedications(foundMedications);
   };
-
+  
   const clearResults = () => {
     setSymptomsInput("");
     setMedications([]);
