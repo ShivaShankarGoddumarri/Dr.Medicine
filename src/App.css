@@ -1,4 +1,27 @@
-/* App.css */
+*{
+  font-family: 'Lato', sans-serif;
+}
+
+:root {
+  /* Primary Colors */
+  --primary-blue: #007BFF;
+  --dark-blue: #0056b3;
+  --light-blue: #e7f0ff;
+
+  /* Secondary Colors */
+  --success-green: #28a745;
+  --light-green: #d4edda;
+  --neutral-grey: #6c757d;
+  --background-grey: #f8f9fa;
+
+  /* Accent Colors */
+  --danger-red: #dc3545;
+  --warning-orange: #fd7e14;
+
+  /* Neutral Colors */
+  --pure-white: #ffffff;
+  --dark-grey: #343a40;
+}
 
 body {
   margin: 0;
@@ -7,18 +30,19 @@ body {
 
 /* Logo */
 .logo {
-  width: 100px; /* Default width for larger screens */
-  height: auto; /* Maintain aspect ratio */
+  width: 100px;
+  height: auto;
+}
 
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    width: 80px; /* Adjust the width for smaller screens */
+@media (max-width: 768px) {
+  .logo {
+    width: 80px;
   }
 }
 
 .App {
   text-align: center;
-  background-color: #000000;
+  background-color: var(--background-grey);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,36 +53,35 @@ body {
 /* Heading */
 .Heading {
   font-size: 1.5rem;
-  color: #ff5733;
+  color: var(--primary-blue);
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    font-size: 1.2rem; /* Adjust the font size for smaller screens */
-    margin-bottom: 10px; /* Adjust the margin for smaller screens */
+@media (max-width: 768px) {
+  .Heading {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
 }
 
 /* Title */
 .title {
-  font-size: 1rem; /* Default font size for larger screens */
-  color: #cdd7d7;
+  font-size: 1rem;
+  color: var(--neutral-grey);
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  color: red;
+}
 
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    font-size: 0.6rem; /* Adjust the font size for smaller screens */
-    margin-bottom: 10px; /* Adjust the margin for smaller screens */
-    color: red;
+@media (max-width: 768px) {
+  .title {
+    font-size: 0.6rem;
+    margin-bottom: 10px;
   }
 }
 
-
-.name{
-  color: #a39e9e;
+.name {
+  color: var(--neutral-grey);
 }
 
 /* Input Container */
@@ -66,164 +89,170 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px; /* Default margin for larger screens */
+  margin-bottom: 20px;
+}
 
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column */
-    align-items: center; /* Center items horizontally */
-    margin-bottom: 10px; /* Adjust the margin for smaller screens */
+@media (max-width: 768px) {
+  .input-container {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
   }
 }
 
 /* Input Field and Dropdown */
 .input-field {
   padding: 10px;
-  border: 2px solid #00bcd4; /* Bright cyan border */
+  border: 2px solid var(--primary-blue);
   border-radius: 5px;
-  width: 150px; /* Default width for larger screens */
-  font-size: 1rem; /* Default font size for larger screens */
+  width: 150px;
+  font-size: 1rem;
   margin-right: 10px;
   transition: border-color 0.3s ease-in-out;
-  @media (max-width: 768px) {
-      width: 100%; /* Make them full width */
-      font-size: 0.9rem; /* Adjust the font size for smaller screens */
-      margin-left: 2px;; /* Remove margin for smaller screens */
-      margin-bottom: 10px; /* Add a gap between input field and dropdown on smaller screens */
+}
+
+@media (max-width: 768px) {
+  .input-field {
+    width: 100%;
+    font-size: 0.9rem;
+    margin-left: 2px;
+    margin-bottom: 10px;
   }
 }
 
 .dropdown {
   padding: 10px;
-  border: 2px solid #00bcd4; /* Bright cyan border */
+  border: 2px solid var(--primary-blue);
   border-radius: 5px;
-  width: 150px; /* Default width for larger screens */
-  font-size: 1rem; /* Default font size for larger screens */
+  width: 150px;
+  font-size: 1rem;
   margin-right: 10px;
   transition: border-color 0.3s ease-in-out;
-  @media (max-width: 768px) {
-      width: 100%; /* Make them full width */
-      font-size: 0.9rem; /* Adjust the font size for smaller screens */
-      margin-right: 0; /* Remove margin for smaller screens */
-      margin-bottom: 10px; /* Add a gap between input field and dropdown on smaller screens */
+}
+
+@media (max-width: 768px) {
+  .dropdown {
+    width: 100%;
+    font-size: 0.9rem;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
 
-
-
 .input-field:focus,
 .dropdown:focus {
-  border-color: #ff3366; /* Bright pink border on focus */
+  border-color: var(--danger-red);
   outline: none;
 }
-
 
 /* Check Button */
 .check-button,
 .clear-button {
-  background-color: #00bcd4;
-  color: #fff;
+  background-color: var(--primary-blue);
+  color: var(--pure-white);
   border: none;
   border-radius: 5px;
-  padding: 10px 20px; /* Default padding for larger screens */
-  font-size: 1rem; /* Default font size for larger screens */
+  padding: 10px 20px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  margin-right: 10px; /* Add margin-right for gap between buttons */
+  margin-right: 10px;
+}
 
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    padding: 8px 16px; /* Adjust the padding for smaller screens */
-    font-size: 0.9rem; /* Adjust the font size for smaller screens */
-    margin-left: 0; /* Adjust margin-left for smaller screens */
-    margin-top: 10px; /* Add margin-top for spacing between buttons */
+@media (max-width: 768px) {
+  .check-button,
+  .clear-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    margin-left: 0;
+    margin-top: 10px;
   }
 }
 
 .check-button:hover,
 .clear-button:hover {
-  background-color: #ff3366; /* Bright pink button on hover */
+  background-color: var(--dark-blue);
 }
 
 /* Medication Results */
 .medication-results {
-  background-color: #dedede;
+  background-color: var(--light-blue);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 20px;
   margin-left: 80px;
-  width: 460px; /* Default width for larger screens */
+  width: 460px;
+}
 
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    width: 90%; /* Adjust the width for smaller screens */
-    margin-left: 0; /* Remove left margin for smaller screens */
-    margin-bottom: 10px; /* Adjust the margin for smaller screens */
+@media (max-width: 768px) {
+  .medication-results {
+    width: 90%;
+    margin-left: 0;
+    margin-bottom: 10px;
   }
 }
 
 .Medication-Heading {
-  color: green;
+  color: var(--success-green);
   font-weight: bold;
 }
 
 /* CSS for the current date and time display */
 .current-datetime {
-  margin-top: 10px; /* Add spacing above the date and time */
-  font-size: 16px; /* Adjust font size */
-  color: #333; /* Set the text color */
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--dark-grey);
 }
 
 /* Medication Text */
 .medication-text {
   font-size: 1.2rem;
-  color: #000000; /* Bright cyan text color */
+  color: var(--dark-grey);
   text-align: left;
 }
 
 /* Clear Button */
 .clear-button {
-  background-color: #ff3333;
-  color: white;
+  background-color: var(--danger-red);
+  color: var(--pure-white);
   border: none;
   border-radius: 5px;
-  padding: 10px 20px; /* Default padding for larger screens */
-  font-size: 1rem; /* Default font size for larger screens */
+  padding: 10px 20px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+}
 
-  /* Media Query for smaller screens */
-  @media (max-width: 768px) {
-    padding: 8px 16px; /* Adjust the padding for smaller screens */
-    margin-left: 5px; /* Adjust margin-left for smaller screens */
+@media (max-width: 768px) {
+  .clear-button {
+    padding: 8px 16px;
+    margin-left: 5px;
   }
 }
 
 .clear-button:hover {
-  background-color: #cc0000; /* Darker red color on hover */
+  background-color: #cc0000;
 }
-
-/* Add this CSS to your App.css file or your preferred CSS file */
 
 /* Copy button style */
 .copy-button {
-  background-color: #007bff; /* Blue color for the button */
-  color: #fff; /* White text color */
+  background-color: var(--primary-blue);
+  color: var(--pure-white);
   border: none;
   padding: 10px 20px;
   margin-top: 10px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  transition: background-color 0.3s ease;
 }
 
 .copy-button:hover {
-  background-color: #0056b3; /* Darker blue color on hover */
+  background-color: var(--dark-blue);
 }
 
 /* Copy status message style */
 .copy-status {
   font-weight: bold;
-  color: green; /* Blue color for the message */
+  color: var(--success-green);
   margin-top: 10px;
 }
