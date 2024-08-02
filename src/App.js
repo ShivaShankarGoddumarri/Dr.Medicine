@@ -17,11 +17,13 @@ import {
 import { Search, Clear, ContentCopy } from "@mui/icons-material";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 
+
 function App() {
   const [symptomsInput, setSymptomsInput] = useState("");
   const [medications, setMedications] = useState([]);
   const [currentDateTime, setCurrentDateTime] = useState(null);
   const [copyStatus, setCopyStatus] = useState(false);
+  const [isCheckButtonVisible, setIsCheckButtonVisible] = useState(true);
 
   const symptomDatabase = {
     AcneBreakout: {
@@ -207,6 +209,7 @@ function App() {
     setCurrentDateTime(new Date());
     setMedications(foundMedications);
     setSymptomsInput('');
+    setIsCheckButtonVisible(false);
   };
 
   const clearResults = () => {
@@ -214,6 +217,7 @@ function App() {
     setMedications([]);
     setCurrentDateTime(null);
     setCopyStatus(false);
+    setIsCheckButtonVisible(true);
   };
 
   const copyMedicationResults = () => {
@@ -281,23 +285,26 @@ function App() {
           </TextField>
         </Box>
         <Box display="flex" gap={1} justifyContent="center" mb={2}>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<Search />}
-            onClick={checkSymptoms}
-            disabled={!symptomsInput.trim()}
-          >
-            Check Symptoms
-          </Button>
-          <Button
-            variant="outlined"
-            color="secondary"
-            startIcon={<Clear />}
-            onClick={clearResults}
-          >
-            Clear Results
-          </Button>
+          {isCheckButtonVisible ? (
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<Search />}
+              onClick={checkSymptoms}
+              disabled={!symptomsInput.trim()}
+            >
+              Check Symptoms
+            </Button>
+          ) : (
+            <Button
+              variant="outlined"
+              color="secondary"
+              startIcon={<Clear />}
+              onClick={clearResults}
+            >
+              Clear Results
+            </Button>
+          )}
         </Box>
         {medications.length > 0 && (
           <Paper elevation={2} style={{ padding: "1rem", marginTop: "1rem" }}>
